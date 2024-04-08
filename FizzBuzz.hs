@@ -12,3 +12,5 @@ main = do
     [1..30]
         & map fizzBuzz
         & print
+
+    print $ map fizzBuzz [1..30]
