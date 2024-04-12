@@ -2,11 +2,11 @@ import Data.Function -- Para importar los operadores (& y $)
 import Data.List -- Para importar las funciones de listas
 
 calcularMaximo :: [Char] -> (Char, Int) -> (Char, Int) -> (Char, Int)
-calcularMaximo [] acc max = max
-calcularMaximo (x:xs) (ac, an) (maxc, maxn)
-    | x == ac = calcularMaximo xs (ac, an + 1) (maxc, maxn)
-    | an > maxn = calcularMaximo xs (x, 1) (ac, an)
-    | otherwise = calcularMaximo xs (x, 1) (maxc, maxn)
+calcularMaximo [] acc max = max -- Si la lista está vacía, devolver el máximo encontrado
+calcularMaximo (x:xs) (ac, an) (maxc, maxn) 
+    | x == ac = calcularMaximo xs (ac, an + 1) (maxc, maxn) -- Si el primer caracter es el mismo que vamos acumulando, seguimos acumulando
+    | an > maxn = calcularMaximo xs (x, 1) (ac, an) -- Si el caracter acumulado es mayor que el máximo, lo guardamos en el maximo
+    | otherwise = calcularMaximo xs (x, 1) (maxc, maxn) -- Si no, empezamos con el siguiente caracter
 
 maximo :: [Char] -> (Char, Int)
 maximo [] = (' ', 0)
