@@ -15,9 +15,9 @@ maximo (x:xs) = calcularMaximo xs (x,1) (x,1)
 masRepetido :: [Char] -> (Char, Int)
 masRepetido [] = (' ', 0)
 masRepetido s = s
-    & filter (/=' ') -- quitarBlancos
-    & sort -- ordenar
-    & maximo
+    & filter (/=' ') -- quitar los espacios en blanco
+    & sort -- ordenar los caracteres
+    & maximo -- calcular el caracter más repetido
 
 main::IO ()
 main = do
