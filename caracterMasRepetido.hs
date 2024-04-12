@@ -3,10 +3,10 @@ import Data.List -- Para importar las funciones de listas
 
 calcularMaximo :: [Char] -> (Char, Int) -> (Char, Int) -> (Char, Int)
 calcularMaximo [] acc max = max
-calcularMaximo (x:xs) acc max
-    | x == fst acc = calcularMaximo xs (x, snd acc + 1) max
-    | snd acc > snd max = calcularMaximo xs (x, 1) acc
-    | otherwise = calcularMaximo xs (x, 1) max
+calcularMaximo (x:xs) (ac, an) (maxc, maxn)
+    | x == ac = calcularMaximo xs (ac, an + 1) (maxc, maxn)
+    | an > maxn = calcularMaximo xs (x, 1) (ac, an)
+    | otherwise = calcularMaximo xs (x, 1) (maxc, maxn)
 
 maximo :: [Char] -> (Char, Int)
 maximo [] = (' ', 0)
