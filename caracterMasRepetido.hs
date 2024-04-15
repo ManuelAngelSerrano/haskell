@@ -21,4 +21,5 @@ masRepetido s = s
 
 main::IO ()
 main = do
+    print "El caracter más repetido es: "
     print $ masRepetido "En un lugar de la Mancha de cuyo nombre no quiero acordarme"
